@@ -23,12 +23,15 @@
 import sched
 import time
 
+from tenforward_client.core.logger import Logger
+
 
 class Client:
 
 	def __init__(self, *args, **kwargs):
 		self.update_time = 5
 		self.sched = sched.scheduler(timefunc=time.time, delayfunc=time.sleep)
+		self.logger = Logger()
 
 	def __loop(self):
 		"""
@@ -37,7 +40,7 @@ class Client:
 		"""
 		self.sched.enter(self.update_time, priority=0, action=self.__loop, argument=())
 
-		print("In Loop")
+		self.logger.debug("In Loop")
 
 	def loop(self):
 		"""
