@@ -23,15 +23,12 @@
 import sched
 import time
 
-from tenforward_client.core.logger import Logger
-
 
 class Client:
 
 	def __init__(self, *args, **kwargs):
 		self.update_time = 5
 		self.sched = sched.scheduler(timefunc=time.time, delayfunc=time.sleep)
-		self.logger = Logger()
 
 	def __loop(self):
 		"""
