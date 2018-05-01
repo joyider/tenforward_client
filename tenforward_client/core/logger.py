@@ -28,7 +28,6 @@ from logging.handlers import RotatingFileHandler
 # TODO: These should not be here as well consider Config location
 LOGFILE = 'tenforward.log'
 LOG_FILECOMPLETE = os.path.join(tempfile.gettempdir(), LOGFILE)
-print(LOG_FILECOMPLETE)
 
 
 class _LoggerManager:
@@ -44,7 +43,7 @@ class _LoggerManager:
 		except:
 			raise IOError("Could not create/open the file {}, check permissions".format(LOG_FILECOMPLETE))
 
-		self.logger.setLevel(logging.DEBUG)
+		self.logger.setLevel(logging.WARNING)
 		formater = logging.Formatter(
 			fmt='[%(asctime)s] - [%(levelname)-8s] - %(message)s',
 			datefmt='%F %H:%M:%S'

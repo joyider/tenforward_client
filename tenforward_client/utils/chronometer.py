@@ -77,8 +77,9 @@ class Counter:
 
 	"""
 
-	def __init__(self):
-		self.start()
+	def __init__(self, autostart=True):
+		if autostart:
+			self.start()
 
 	def start(self):
 		self.target = datetime.now()

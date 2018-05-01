@@ -36,8 +36,9 @@ class Reporter:
 		self.restclient = restclient.APIClient()
 
 	def send_data(self, report_data):
-
-		url = '%s/metric_cpu' % (config.reporting.url)
+		#TODO: Raises Keyerror if failing Handle that eception
+		table_name = report_data.pop('table_name', None)
+		url = '%s/%s' % (config.reporting.url, table_name)
 		print(url)
 		resp = self.restclient.send_data(url, report_data)
 

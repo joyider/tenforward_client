@@ -51,7 +51,7 @@ class CpuUpdate(UpdateInterface):
 	                }
 
 	# Checks to send to remote DB
-	NAMED_CHECKS = ['total', 'iowait', 'interrupts']
+	NAMED_CHECKS = ['total', 'iowait', 'softirq', 'ctx_switches', 'interrupts', 'soft_interrupts']
 
 
 
@@ -63,7 +63,7 @@ class CpuUpdate(UpdateInterface):
 		"""
 		# super(CpuUpdate, self).__init__(*args, **kwargs)
 		self.prefix = self.__class__.__name__[:-6].lower()
-		print(os.path.basename(__file__))
+		self.fn_for_db = os.path.basename(__file__)[:-3].lower()
 
 		# Init stats
 		self.reset()
@@ -175,4 +175,4 @@ class CpuUpdate(UpdateInterface):
 
 
 		# Return the dict with CHECK Prefix
-		return {self.prefix:  r_dict}
+		return {'table_name': self.fn_for_db, self.prefix:  r_dict}

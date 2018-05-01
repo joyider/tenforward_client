@@ -81,8 +81,10 @@ class UpdateInterface:
 					# This is now a list of dicts, probably not OK, need dict
 					self.metrics.append(stat)
 
-		logger.info("Do something with all update metrics")
-		print(self.metrics)
+		#Do something with all update metrics
+
+		#for metric in self.metrics:
+		#	print(metric)
 		return self.metrics
 
 	@abstractmethod
