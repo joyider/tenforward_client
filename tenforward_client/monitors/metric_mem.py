@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # tenforward_client(c) 2018 by Andre Karlsson<andre.karlsson@protractus.se>
 #
+# --.--          ,---.                             |
+#   |  ,---.,---.|__. ,---.,---.. . .,---.,---.,---|
+#   |  |---'|   ||    |   ||    | | |,---||    |   |
+#   `  `---'`   '`    `---'`    `-'-'`---^`    `---'
+#
 # This file is part of tenforward_client.
 #
 #    tenforward_client is free software: you can redistribute it and/or modify
@@ -27,6 +32,8 @@ from tenforward_client.core.interfaces.updateinterface import UpdateInterface
 from tenforward_client import config
 from tenforward_client.utils.three2two import iteritems
 from tenforward_client.utils.chronometer import Counter
+
+from tenforward_client.core.alertmanager import AlertManager
 
 
 from tenforward_client import logger

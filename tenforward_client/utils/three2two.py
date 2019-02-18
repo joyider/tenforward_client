@@ -41,6 +41,7 @@ except ImportError:
 
 if PY3:
     import queue
+    import html.parser as HTMLParser
     from configparser import ConfigParser, NoOptionError, NoSectionError
     from urllib.request import urlopen
     from urllib.error import HTTPError, URLError
@@ -100,6 +101,7 @@ if PY3:
         return s.decode('utf-8', 'replace')
 else:
     import Queue as queue
+    import HTMLParser
     from itertools import imap as map
     from ConfigParser import SafeConfigParser as ConfigParser, NoOptionError, NoSectionError
     from urllib2 import urlopen, HTTPError, URLError
